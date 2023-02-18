@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <memory>
 #include "utils/head/tinyxml.h"
 
 using namespace std;
@@ -10,18 +11,16 @@ using namespace std;
 
 int main(int argNum, char *argv[]) {
 #if 1
-    TiXmlDocument *pDocument = new TiXmlDocument();
+    shared_ptr<TiXmlDocument> pDocument = make_shared<TiXmlDocument>();
     if (pDocument == nullptr)
     {
         std::cout << "NULL == pDocument" << std::endl;
-        delete pDocument;
         return -1;
     }
 
-    if (!pDocument ->LoadFile("C:/Users/lingweitao/CLionProjects/hello/camera/data.xml", TIXML_ENCODING_UNKNOWN))
+    if (!pDocument ->LoadFile("../../camera/data.xml", TIXML_ENCODING_UNKNOWN))
     {
         std::cout << "无法加载xml文件！" << std::endl;
-        delete pDocument;
         return -1;
     }
 
@@ -29,7 +28,6 @@ int main(int argNum, char *argv[]) {
     if (nullptr == pRootElement)
     {
         std::cout << "NULL == pRootElement" << std::endl;
-        delete pDocument;
         return -1;
     }
     auto pR = pRootElement->FirstChildElement();
@@ -40,7 +38,6 @@ int main(int argNum, char *argv[]) {
     pDocument->Print();
 
 
-    delete pDocument;
 #elif 0
     FILE *p = fopen("data.xml", "rb");
     if(!p) {
