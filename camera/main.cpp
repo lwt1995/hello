@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <memory>
+#include "metadata.h"
 #include "utils/head/tinyxml.h"
 
 using namespace std;
@@ -30,11 +31,17 @@ int main(int argNum, char *argv[]) {
         std::cout << "NULL == pRootElement" << std::endl;
         return -1;
     }
-    auto pR = pRootElement->FirstChildElement();
+
+    auto pR = pRootElement->FirstChildElement("model1");
     auto name = pR->FirstChildElement("name");
     cout << name->GetText() << endl;
     auto weight = pR->FirstChildElement("weight");
     cout << weight->GetText() << endl;
+    auto pp = pRootElement->FirstChildElement("model2");
+    auto name1 = pp->FirstChildElement("name");
+    cout << name1->GetText() << endl;
+    auto weight1 = pp->FirstChildElement("weight");
+    cout << weight1->GetText() << endl;
     pDocument->Print();
 
 

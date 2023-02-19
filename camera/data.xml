@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <camera>
-    <model name="test01">
+    <model1 name="test01">
         <name>qianzhi</name>
         <weight>100</weight>
         <height>200</height>
         <type>1</type>
         <data>this is first photo</data>
-    </model>
-    <model name="test02">
+    </model1>
+    <model2 name="test02">
         <name>houzhi</name>
         <weight>300</weight>
         <height>400</height>
         <type>2</type>
         <data>this is second photo</data>
-    </model>
+    </model2>
 </camera>
