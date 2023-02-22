@@ -62,11 +62,11 @@ void stringRevrse(){
     cout << ss << endl;
 }
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    cout << add(1, 2) << endl;
-    cout << subtract(1, 2) << endl;
-    cout << multiply(1, 2) << endl;
-    cout << except(1, 2) << endl;
+//    std::cout << "Hello, World!" << std::endl;
+//    cout << add(1, 2) << endl;
+//    cout << subtract(1, 2) << endl;
+//    cout << multiply(1, 2) << endl;
+//    cout << except(1, 2) << endl;
 //    int arr[] = { 61, 17, 29, 22, 34, 60, 72, 21, 50, 1, 62 };
 //    int len = (int) sizeof(arr) / sizeof(*arr);
 //    bubble_sort(arr, len);
