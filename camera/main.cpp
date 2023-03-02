@@ -6,6 +6,7 @@
 #include <memory>
 #include "metadata.h"
 #include "utils/head/tinyxml.h"
+#include <cassert>
 
 using namespace std;
 
@@ -50,6 +51,8 @@ int main(int argNum, char *argv[]) {
     if(!p) {
         cout << "xml not exist!" << endl;
     }
+    int *a = nullptr;
+    assert(a != nullptr);
 #endif
     return 0;
 }
