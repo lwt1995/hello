@@ -6,7 +6,7 @@
 //定义N*N的棋盘
 #include <iostream>
 
-#define N 5
+#define N 10
 
 #define printstr(paramter) paramter  //转字符串
 
@@ -98,7 +98,7 @@ bool check_Y(Data &data){
             return true;
         }
 
-        if ((data.x + k < N) && data.chessboardArray[data.x + k][data.y] == data.c) {
+        if ((data.x + k < data.length) && data.chessboardArray[data.x + k][data.y] == data.c) {
             count++;
         } else if ((data.x - index >= 0) && data.chessboardArray[data.x - index][data.y] == data.c) {
             count++;
@@ -118,7 +118,7 @@ bool check_X(Data &data){
             return true;
         }
 
-        if ((data.x + k < N) && data.chessboardArray[data.x][data.y + k] == data.c) {
+        if ((data.x + k < data.length) && data.chessboardArray[data.x][data.y + k] == data.c) {
             count++;
         } else if ((data.y - index >= 0) && data.chessboardArray[data.x][data.y - index] == data.c) {
             count++;
@@ -136,7 +136,7 @@ bool check_X_Y_right(Data &data){
             return true;
         }
 
-        if ((data.x + k < N) && (data.y + k < N) && data.chessboardArray[data.x + k][data.y + k] == data.c) {
+        if ((data.x + k < data.length) && (data.y + k < data.length) && data.chessboardArray[data.x + k][data.y + k] == data.c) {
             count++;
         } else if ((data.x - index >= 0) && (data.y - index >= 0) && data.chessboardArray[data.x - index][data.y - index] == data.c) {
             count++;
@@ -153,9 +153,9 @@ bool check_X_Y_left(Data &data){
             return true;
         }
 
-        if ((data.x - k >= 0) && (data.y + k < N) && data.chessboardArray[data.x - k][data.y + k] == data.c) {
+        if ((data.x - k >= 0) && (data.y + k < data.length) && data.chessboardArray[data.x - k][data.y + k] == data.c) {
             count++;
-        } else if ((data.x + index < N) && (data.y - index >= 0) && data.chessboardArray[data.x + index][data.y - index] == data.c) {
+        } else if ((data.x + index < data.length) && (data.y - index >= 0) && data.chessboardArray[data.x + index][data.y - index] == data.c) {
             count++;
             index++;
         }
