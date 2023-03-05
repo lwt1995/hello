@@ -67,94 +67,28 @@ void checkFiveChess(int chessboardArray[N][N], int i, int j) {
     data.length = N;
     data.c = C;
     bool checkflag = check_Y(data);
-    if (checkflag){
+    if (checkflag) {
         std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
         return;
     }
 
     checkflag = check_X(data);
-    if (checkflag){
+    if (checkflag) {
         std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
         return;
     }
 
     checkflag = check_X_Y_right(data);
-    if (checkflag){
+    if (checkflag) {
         std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
         return;
     }
 
     checkflag = check_X_Y_left(data);
-    if (checkflag){
+    if (checkflag) {
         std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
         return;
     }
-//    //考虑纵坐标
-//    int count = 0, index = 1;
-//    for (int k = 1; k < 6; ++k) {
-//        if (count == 4) {
-//            std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
-//            return;
-//        }
-//
-//        if ((i + k < N) && chessboardArray[i + k][j] == C) {
-//            count++;
-//        } else if ((i - index >= 0) && chessboardArray[i - index][j] == C) {
-//            count++;
-//            index++;
-//        }
-//
-//    }
-    //考虑横坐标
-//    count = 0;
-//    index = 1;
-//    for (int k = 1; k < 6; ++k) {
-//        if (count == 4) {
-//            std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
-//            return;
-//        }
-//
-//        if ((i + k < N) && chessboardArray[i][j + k] == C) {
-//            count++;
-//        } else if ((j - index >= 0) && chessboardArray[i][j - index] == C) {
-//            count++;
-//            index++;
-//        }
-//    }
-
-    //考虑右斜坐标
-//    count = 0;
-//    index = 1;
-//    for (int k = 1; k < 6; ++k) {
-//        if (count == 4) {
-//            std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
-//            return;
-//        }
-//
-//        if ((i + k < N) && (j + k < N) && chessboardArray[i + k][j + k] == C) {
-//            count++;
-//        } else if ((i - index >= 0) && (j - index >= 0) && chessboardArray[i - index][j - index] == C) {
-//            count++;
-//            index++;
-//        }
-//    }
-
-//    //考虑左斜坐标
-//    count = 0;
-//    index = 1;
-//    for (int k = 1; k < 6; ++k) {
-//        if (count == 4) {
-//            std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
-//            return;
-//        }
-//
-//        if ((i - k >= 0) && (j + k < N) && chessboardArray[i - k][j + k] == C) {
-//            count++;
-//        } else if ((i + index < N) && (j - index >= 0) && chessboardArray[i + index][j - index] == C) {
-//            count++;
-//            index++;
-//        }
-//    }
 }
 //纵坐标检查
 bool check_Y(Data &data){
