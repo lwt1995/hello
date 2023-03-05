@@ -6,7 +6,7 @@ set(PROJECT_NAME boostTest)
 #link_directories(D:\\install\\boost_1_80_0\\boost_1_80_0\\compile\\lib)
 
 #set(Boost_USE_STATIC_LIBS ON)
-include("D:/cm.cmake")
+include("cm.cmake")
 #set(BOOST_ROOT E:/data/boost_1_81_0)
 #set(BOOST_INCLUDEDIR ${BOOST_ROOT})
 #set(BOOST_LIBRARYDIR ${BOOST_ROOT}/stage/lib)
