@@ -68,27 +68,26 @@ void checkFiveChess(int chessboardArray[N][N], int i, int j) {
     data.c = C;
     bool checkflag = check_Y(data);
     if (checkflag) {
-        std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
-        return;
+        goto RESULT;
     }
 
     checkflag = check_X(data);
     if (checkflag) {
-        std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
-        return;
+        goto RESULT;
     }
 
     checkflag = check_X_Y_right(data);
     if (checkflag) {
-        std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
-        return;
+        goto RESULT;
     }
 
     checkflag = check_X_Y_left(data);
     if (checkflag) {
-        std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
-        return;
+        goto RESULT;
     }
+RESULT:
+    std::cout << (C == 1 ? "write " : "black ") << "win!" << std::endl;
+    return;
 }
 //纵坐标检查
 bool check_Y(Data &data){
