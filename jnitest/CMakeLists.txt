@@ -10,7 +10,7 @@ set(PROJECT_NAME test01)
 #if (${PROJECT_NAME} STREQUAL "hello")
 #    #引入头文件
 #    include_directories(./shared)
-    include_directories("E:/installApp/java/include/win32")
+#include_directories("E:/installApp/java/include/win32")
 #    #引入库文件
 #    link_directories(./lib)
 #    add_executable(${PROJECT_NAME} main.cpp)
@@ -21,7 +21,9 @@ set(PROJECT_NAME test01)
 #    # 设置 库文件的默认输出路径
 ##    set (LIBRARY_OUTPUT_PATH ../lib)
     #add_library(${PROJECT_NAME} SHARED ./shared/fourOperations.h ./shared/fourOperations.cpp)
-    add_library(${PROJECT_NAME} SHARED dll_DataManger.h dll_DataManger.cpp)
+set(CMAKE_SHARED_LIBRARY_PREFIX "")
+#add_library(${PROJECT_NAME} SHARED dll_DataManger.h dll_DataManger.cpp)
+add_library(${PROJECT_NAME} SHARED ./shared/fourOperations.h ./shared/fourOperations.cpp)
 ##    set_target_properties(${PROJECT_NAME} PROPERTIES
 ##            OUTPUT_NAME ${PROJECT_NAME}
 ##            PREFIX lib

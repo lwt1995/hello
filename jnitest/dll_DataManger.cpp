@@ -3,7 +3,8 @@
 //
 #include "dll_DataManger.h"
 
-const std::map<const char *, std::string> mp = {
+ std::map<std::string, std::string> mp = {
+        {"0", "zero"},
         {"1", "one"},
         {"2", "two"},
         {"3", "three"},
@@ -37,7 +38,11 @@ JNIEXPORT jstring JNICALL Java_dll_DataManger_getValueByKey
         (JNIEnv *env, jobject obj, jstring str) {
     char result[128] = {};
     util_jstring_to_char(env, str, result);
-      return env->NewStringUTF(result);
+//    std::cout << mp.at(std::string(result)) <<std::endl;
+    if (mp.find(result) == mp.end()){
+        return env->NewStringUTF("null");
+    }
+    return env->NewStringUTF(mp.at(result).c_str());
 
 }
 

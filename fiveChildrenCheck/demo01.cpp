@@ -17,7 +17,7 @@ enum Color {
     EMPTY = 0, WRITE, BLACK
 };
 typedef struct Data{
-    int chessboardArray[N][N] = {{0,1,0,2,2},{1,1,2,2,2},{2,1,2,0,0},{0,2,0,2,1},{2,1,2,1,2}};
+    int chessboardArray[N][N] = {};
     int length{N};
     int x{0};
     int y{0};
@@ -92,18 +92,16 @@ RESULT:
 //纵坐标检查
 bool check_Y(Data &data){
     int count = 0, index = 1;
-    for (int k = 1; k < 6; ++k) {
-        if (count == 4) {
-            return true;
-        }
-
+    for (int k = 1; k < 5; ++k) {
         if ((data.x + k < data.length) && data.chessboardArray[data.x + k][data.y] == data.c) {
             count++;
         } else if ((data.x - index >= 0) && data.chessboardArray[data.x - index][data.y] == data.c) {
             count++;
             index++;
         }
-
+        if (count == 5) {
+            return true;
+        }
     }
     return false;
 }
@@ -112,16 +110,16 @@ bool check_Y(Data &data){
 bool check_X(Data &data){
     //考虑横坐标
     int count = 0, index = 1;
-    for (int k = 1; k < 6; ++k) {
-        if (count == 4) {
-            return true;
-        }
-
+    for (int k = 1; k < 5; ++k) {
         if ((data.x + k < data.length) && data.chessboardArray[data.x][data.y + k] == data.c) {
             count++;
         } else if ((data.y - index >= 0) && data.chessboardArray[data.x][data.y - index] == data.c) {
             count++;
             index++;
+        }
+
+        if (count == 5) {
+            return true;
         }
     }
     return false;
@@ -130,16 +128,16 @@ bool check_X(Data &data){
 //右斜检查
 bool check_X_Y_right(Data &data){
     int count = 0, index = 1;
-    for (int k = 1; k < 6; ++k) {
-        if (count == 4) {
-            return true;
-        }
-
+    for (int k = 1; k < 5; ++k) {
         if ((data.x + k < data.length) && (data.y + k < data.length) && data.chessboardArray[data.x + k][data.y + k] == data.c) {
             count++;
         } else if ((data.x - index >= 0) && (data.y - index >= 0) && data.chessboardArray[data.x - index][data.y - index] == data.c) {
             count++;
             index++;
+        }
+
+        if (count == 5) {
+            return true;
         }
     }
     return false;
@@ -147,18 +145,16 @@ bool check_X_Y_right(Data &data){
 //左斜检查
 bool check_X_Y_left(Data &data){
     int count = 0, index = 1;
-    for (int k = 1; k < 6; ++k) {
-        if (count == 4) {
-            return true;
-        }
-
+    for (int k = 1; k < 5; ++k) {
         if ((data.x - k >= 0) && (data.y + k < data.length) && data.chessboardArray[data.x - k][data.y + k] == data.c) {
             count++;
         } else if ((data.x + index < data.length) && (data.y - index >= 0) && data.chessboardArray[data.x + index][data.y - index] == data.c) {
             count++;
             index++;
         }
+        if (count == 5) {
+            return true;
+        }
     }
-
     return false;
 }
